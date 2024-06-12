@@ -2,25 +2,31 @@
 let arr = [1, 40, -5, 10, 0];
 
 // Сортировка массива по возрастанию
-for (let i = 0; i < arr.length; i++) {
-    for (let j = i; j < arr.length; j++) {
-        if (arr[i] > arr[j]) {
-            let temp = arr[i];
-            arr[i] = arr[j];
-            arr[j] = temp;
-        }
+function sortArrayAsc(arr) {
+  let arrayCopy = arr.slice();
+    for (let i = 0; i < arrayCopy.length; i++) {
+    for (let j = i; j < arrayCopy.length; j++) {
+      if (arrayCopy[i] > arrayCopy[j]) {
+        [arrayCopy[i], arrayCopy[j]] = [arrayCopy[j], arrayCopy[i]];
+      }
     }
+  }
+  return arrayCopy;
 }
-alert(arr);
+
+console.log(sortArrayAsc(arr));
 
 // Сортировка массива по убыванию
-for (let i = 0; i < arr.length; i++) {
-    for (let j = i; j < arr.length; j++) {
-        if (arr[i] < arr[j]) {
-            let temp = arr[i];
-            arr[i] = arr[j];
-            arr[j] = temp;
-        }
+function sortArrayDesc(arr) {
+  let arrayCopy = arr.slice();
+  for (let i = 0; i < arrayCopy.length; i++) {
+    for (let j = i; j < arrayCopy.length; j++) {
+      if (arrayCopy[i] < arrayCopy[j]) {
+        [arrayCopy[i], arrayCopy[j]] = [arrayCopy[j], arrayCopy[i]];
+      }
     }
+  }
+  return arrayCopy;
 }
-alert(arr);
+
+console.log(sortArrayDesc(arr));
